@@ -7,6 +7,8 @@ const urlWithError = 'http://urlWithError:3000'
 const table = [
   { url: url, test: 'Simple 200 page' },
   { url: urlWithError, test: 'Network Error' },
+  { url: url + '/400', test: 'Simple 400 page' },
+  { url: url + '/401', test: 'Simple 401 page' },
   { url: url + '/404', test: 'Simple 404 page' },
   { url: url + '/500', test: 'Simple 500 page' }
 ]

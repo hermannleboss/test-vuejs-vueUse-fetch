@@ -23,6 +23,10 @@
           <td>{{ statusCode }}</td>
         </tr>
         <tr>
+          <th>OK</th>
+          <td>{{ ok }}</td>
+        </tr>
+        <tr>
           <th>Error</th>
           <td>{{ error }}</td>
         </tr>
@@ -43,6 +47,7 @@ const isFetching = ref()
 const isFinished = ref(false)
 const statusCode = ref()
 const error = ref()
+const ok=ref()
 
 onMounted(async () => {
   try {
@@ -50,6 +55,7 @@ onMounted(async () => {
     const response = await fetch(props.url)
     statusCode.value = response.status
     isFinished.value = true
+    ok.value=response.ok
     data.value = await response.json()
   } catch (e) {
     error.value = e
