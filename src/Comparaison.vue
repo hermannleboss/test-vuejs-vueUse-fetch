@@ -9,7 +9,7 @@
         </tr>
         <tr>
           <th>Test</th>
-          <td>Test not existing url</td>
+          <td>{{test}}</td>
         </tr>
         </tbody>
       </table>
@@ -28,6 +28,9 @@ import SimpleFetchOutput from "@/components/SimpleFetchOutput.vue";
 
 const props = defineProps({
   url: {
+    type: String
+  },
+  test: {
     type: String
   }
 })
