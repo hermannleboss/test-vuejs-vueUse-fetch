@@ -4,7 +4,7 @@
       <tbody>
         <tr>
           <th>Method</th>
-          <td>Use Fetch</td>
+          <td>Simple Fetch</td>
         </tr>
         <tr>
           <th>Data</th>
@@ -31,14 +31,34 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useFetch } from '@vueuse/core'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps({
   url: {
     type: String
   }
 })
-const { data, isFetching, isFinished, statusCode, error } = useFetch(props.url)
-const response = useFetch(props.url)
+const data = ref()
+const isFetching = ref()
+const isFinished = ref(false)
+const statusCode = ref()
+const error = ref()
+
+onMounted(async () => {
+  try {
+    isFetching.value = true
+    const response = await fetch(props.url)
+    statusCode.value = response.status
+    isFinished.value = true
+  } catch (e) {
+    error.value = e
+  } finally {
+    isFetching.value = false
+    isFinished.value = true
+  }
+})
+
+// const { data, isFetching, isFinished, statusCode, error } = useFetch(props.url)
+// const response = useFetch(props.url)
 //console.table(response)
 </script>
