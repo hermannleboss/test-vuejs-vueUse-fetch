@@ -1,26 +1,28 @@
 <template>
   <div class="overflow-x-auto">
-    <table class="table">
-      <tr>
-        <th>Data</th>
-        <td>{{ data }}</td>
-      </tr>
-      <tr>
-        <th>IsFetching</th>
-        <td>{{ isFetching }}</td>
-      </tr>
-      <tr>
-        <th>IsFinished</th>
-        <td>{{ isFinished }}</td>
-      </tr>
-      <tr>
-        <th>Status Code</th>
-        <td>{{ statusCode }}</td>
-      </tr>
-      <tr>
-        <th>Error</th>
-        <td>{{ error }}</td>
-      </tr>
+    <table class="table table-zebra">
+      <tbody>
+        <tr>
+          <th>Data</th>
+          <td>{{ data }}</td>
+        </tr>
+        <tr>
+          <th>IsFetching</th>
+          <td>{{ isFetching }}</td>
+        </tr>
+        <tr>
+          <th>IsFinished</th>
+          <td>{{ isFinished }}</td>
+        </tr>
+        <tr>
+          <th>Status Code</th>
+          <td>{{ statusCode }}</td>
+        </tr>
+        <tr>
+          <th>Error</th>
+          <td>{{ error }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
