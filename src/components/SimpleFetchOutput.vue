@@ -50,6 +50,7 @@ onMounted(async () => {
     const response = await fetch(props.url)
     statusCode.value = response.status
     isFinished.value = true
+    data.value = await response.json()
   } catch (e) {
     error.value = e
   } finally {
